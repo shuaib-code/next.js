@@ -19,7 +19,6 @@ export default function LoginPage() {
         </div>
         <LoginForm />
 
-        {/* {Login With Google and Facebook Provider} */}
         <div className="flex-1 rounded-lg bg-gray-50 px-6 pb-5 pt-2">
           <form action={signInWithGoogle}>
             <Button className="mt-4 w-full justify-center">
