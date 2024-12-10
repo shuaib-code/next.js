@@ -129,6 +129,11 @@ export async function authenticate(
     throw error;
   }
 }
+
 export async function signInWithGoogle() {
   await signIn("google", { redirectTo: "/dashboard" });
+}
+
+export async function signInWithFacebook() {
+  await signIn("facebook", { redirectTo: "/dashboard" });
 }

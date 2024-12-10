@@ -4,6 +4,7 @@ import { sql } from "@vercel/postgres";
 import bcrypt from "bcrypt";
 import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
+import FacebookProvider from "next-auth/providers/facebook";
 import GoogleProvider from "next-auth/providers/google";
 import { z } from "zod";
 
@@ -50,6 +51,7 @@ export const {
         return null;
       },
     }),
+
     // google provider
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID,
@@ -61,6 +63,20 @@ export const {
           response_type: "code",
         },
       },
+    }),
+
+    // Facebook Provider
+    FacebookProvider({
+      clientId: process.env.FACEBOOK_CLIENT_ID,
+      clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
+      // profile(profile) {
+      //   return {
+      //     id: profile.id,
+      //     name: profile.name,
+      //     email: profile.email,
+      //     image: profile.picture?.data?.url,
+      //   };
+      // },
     }),
   ],
 });

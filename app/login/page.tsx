@@ -1,7 +1,7 @@
 import AcmeLogo from "@/app/ui/acme-logo";
 import LoginForm from "@/app/ui/login-form";
 import { Metadata } from "next";
-import { signInWithGoogle } from "../lib/actions";
+import { signInWithFacebook, signInWithGoogle } from "../lib/actions";
 import { Button } from "../ui/button";
 
 export const metadata: Metadata = {
@@ -18,11 +18,20 @@ export default function LoginPage() {
           </div>
         </div>
         <LoginForm />
-        <form action={signInWithGoogle}>
-          <Button className="mt-4 w-full justify-center">
-            Sign In with Google
-          </Button>
-        </form>
+
+        {/* {Login With Google and Facebook Provider} */}
+        <div className="flex-1 rounded-lg bg-gray-50 px-6 pb-5 pt-2">
+          <form action={signInWithGoogle}>
+            <Button className="mt-4 w-full justify-center">
+              Sign In with Google
+            </Button>
+          </form>
+          <form action={signInWithFacebook}>
+            <Button className="mt-4 w-full justify-center">
+              Sign In with Facebook
+            </Button>
+          </form>
+        </div>
       </div>
     </main>
   );
