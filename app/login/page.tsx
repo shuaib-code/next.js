@@ -1,3 +1,6 @@
+import { faFacebook, faGoogle } from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import AcmeLogo from "@/app/ui/acme-logo";
 import LoginForm from "@/app/ui/login-form";
 import { Metadata } from "next";
@@ -22,11 +25,13 @@ export default function LoginPage() {
         <div className="flex-1 rounded-lg bg-gray-50 px-6 pb-5 pt-2">
           <form action={signInWithGoogle}>
             <Button className="mt-4 w-full justify-center">
+              <FontAwesomeIcon icon={faGoogle} className="mr-2" />
               Sign In with Google
             </Button>
           </form>
           <form action={signInWithFacebook}>
             <Button className="mt-4 w-full justify-center">
+              <FontAwesomeIcon icon={faFacebook} className="mr-2" />
               Sign In with Facebook
             </Button>
           </form>

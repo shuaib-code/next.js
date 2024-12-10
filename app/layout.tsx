@@ -2,6 +2,11 @@ import { inter } from "@/app/ui/fonts";
 import "@/app/ui/global.css";
 import { Metadata } from "next";
 
+// Font-awesome config
+import { config } from "@fortawesome/fontawesome-svg-core";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+config.autoAddCss = false;
+
 export const metadata: Metadata = {
   title: {
     template: "%s | Acme Dashboard",
