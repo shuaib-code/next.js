@@ -11,7 +11,7 @@ export default async function Page(props: { params: Promise<{ id: string }> }) {
     fetchCustomers(),
   ]);
 
-  !invoice && notFound();
+  if (!invoice) notFound();
 
   return (
     <main>
