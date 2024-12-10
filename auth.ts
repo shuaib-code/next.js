@@ -63,16 +63,4 @@ export const {
       },
     }),
   ],
-  // session: {
-  //   strategy: "jwt",
-  // },
-  // callbacks: {
-  //   async jwt({ token, account }) {
-  //     if (account) {
-  //       token.id = account.id;
-  //       token.email = account.email?.toString();
-  //     }
-  //     return token;
-  //   },
-  // },
 });
