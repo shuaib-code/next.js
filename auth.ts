@@ -4,6 +4,7 @@ import { sql } from "@vercel/postgres";
 import bcrypt from "bcrypt";
 import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
+import GoogleProvider from "next-auth/providers/google";
 import { z } from "zod";
 
 async function getUser(email: string): Promise<User | undefined> {
@@ -16,7 +17,12 @@ async function getUser(email: string): Promise<User | undefined> {
   }
 }
 
-export const { auth, signIn, signOut } = NextAuth({
+export const {
+  handlers: { GET, POST },
+  auth,
+  signIn,
+  signOut,
+} = NextAuth({
   ...authConfig,
   providers: [
     Credentials({
@@ -44,5 +50,29 @@ export const { auth, signIn, signOut } = NextAuth({
         return null;
       },
     }),
+    // google provider
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      authorization: {
+        params: {
+          prompt: "consent",
+          access_type: "offline",
+          response_type: "code",
+        },
+      },
+    }),
   ],
+  // session: {
+  //   strategy: "jwt",
+  // },
+  // callbacks: {
+  //   async jwt({ token, account }) {
+  //     if (account) {
+  //       token.id = account.id;
+  //       token.email = account.email?.toString();
+  //     }
+  //     return token;
+  //   },
+  // },
 });

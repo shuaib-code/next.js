@@ -1,6 +1,8 @@
 import AcmeLogo from "@/app/ui/acme-logo";
 import LoginForm from "@/app/ui/login-form";
 import { Metadata } from "next";
+import { signInWithGoogle } from "../lib/actions";
+import { Button } from "../ui/button";
 
 export const metadata: Metadata = {
   title: "Login",
@@ -16,6 +18,11 @@ export default function LoginPage() {
           </div>
         </div>
         <LoginForm />
+        <form action={signInWithGoogle}>
+          <Button className="mt-4 w-full justify-center">
+            Sign In with Google
+          </Button>
+        </form>
       </div>
     </main>
   );
