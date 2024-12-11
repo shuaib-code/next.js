@@ -7,8 +7,9 @@ export default function manifest(): MetadataRoute.Manifest {
     description: "Dashboard, A Progressive Web App built with Next.js",
     start_url: "/logo.html",
     display: "standalone",
-    background_color: "#ffffff",
-    theme_color: "#000000",
+    background_color: "#1e1e2f",
+    theme_color:
+      "linear-gradient(to bottom, rgba(0, 191, 255, 0.6), rgba(135, 206, 235, 0.6))",
     icons: [
       {
         src: "/dashboard-192.png",
