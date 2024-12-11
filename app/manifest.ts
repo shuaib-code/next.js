@@ -2,10 +2,10 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Dashboard PWA",
+    name: "Dashboard",
     short_name: "Dashboard",
     description: "Dashboard, A Progressive Web App built with Next.js",
-    start_url: "/",
+    start_url: "/logo.html",
     display: "standalone",
     background_color: "#ffffff",
     theme_color: "#000000",
